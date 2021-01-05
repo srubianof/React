@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // Importar componente
 import PrimeraApp from "./PrimeraApp";
-import './index.css'
+import "./index.css";
 
 // const saludo = <h1>Hola Mundo</h1>
 
 // Referencia a div principal
-const divRoot = document.querySelector('#app');
-console.log(divRoot)
+const divRoot = document.querySelector("#app");
+console.log(divRoot);
 // Para renderizar componentes que devuelven HTML utilizo <NOMBRE />
 // ReactDOM.render(<PrimeraApp/>, divRoot)
-ReactDOM.render(<PrimeraApp saludo="Hola, Soy Goku"/>, divRoot)
+ReactDOM.render(<PrimeraApp saludo="Hola, Soy Goku" />, divRoot);
