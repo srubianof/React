@@ -7,12 +7,14 @@ const PrimeraApp = () => {
         nombre: 'Santiago',
         edad: 23
     }
-    return (
-        <>
-            {/*<h1>{saludo}</h1>*/}
-            <pre>{JSON.stringify(saludo, null, 3)}</pre>
-            <p>Mi primera aplicacion</p>
-        </>
-    );
+    return <h1>Hola Mundo</h1>
+        // <>
+
+    // <pre>{JSON.stringify(saludo, null, 3)}</pre>
+            // <p>Mi primera aplicacion</p>
+        // </>
+    // );
 }
+
+// Exporto mi funcion para poder ser utilizada por otros componentes
 export default PrimeraApp;

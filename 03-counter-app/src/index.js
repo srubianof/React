@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Importar componente
 import PrimeraApp from "./PrimeraApp";
 import './index.css'
 
