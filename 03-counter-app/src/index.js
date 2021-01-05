@@ -10,4 +10,5 @@ import './index.css'
 const divRoot = document.querySelector('#app');
 console.log(divRoot)
 // Para renderizar componentes que devuelven HTML utilizo <NOMBRE />
-ReactDOM.render(<PrimeraApp/>, divRoot)
+// ReactDOM.render(<PrimeraApp/>, divRoot)
+ReactDOM.render(<PrimeraApp saludo="Hola, Soy Goku"/>, divRoot)

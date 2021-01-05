@@ -2,11 +2,9 @@ import React, {Fragment} from 'react';
 //Functional Components
 
 // Se que es un functional component porque retorna HTML
-const PrimeraApp = () => {
-    const saludo = {
-        nombre: 'Santiago',
-        edad: 23
-    }
+const PrimeraApp = ({saludo = 'Hola Mundo'}) => {
+    // const saludo = 'Hola Mundo';
+    console.log(saludo)
     return (
         // <div>
         //     <h1>Hola Mundo</h1>
@@ -14,12 +12,13 @@ const PrimeraApp = () => {
         // </div>
 
         // Para no tener un monton de divs sin usar utilizaremos Fragments
-
         // Para no importar Fragment, simplemente poner <>
-        <Fragment>
-            <pre>{JSON.stringify(saludo, null, 3)}</pre>
+        <>
+            <h1> {saludo} </h1>
+            {/*Para imprimir objetos formateados como JSON*/}
+            {/*<pre>{JSON.stringify(saludo, null, 3)}</pre>*/}
             <p>Mi primera aplicacion</p>
-        </Fragment>
+        </>
     );
 
 
