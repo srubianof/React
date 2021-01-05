@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
 //Functional Components
 
 // Se que es un functional component porque retorna HTML
-const PrimeraApp = ({saludo = 'Hola Mundo'}) => {
+
+const PrimeraApp = ({ saludo }) => {
     // const saludo = 'Hola Mundo';
-    console.log(saludo)
     return (
         // <div>
         //     <h1>Hola Mundo</h1>
@@ -20,9 +21,10 @@ const PrimeraApp = ({saludo = 'Hola Mundo'}) => {
             <p>Mi primera aplicacion</p>
         </>
     );
-
-
 }
 
+PrimeraApp.propTypes = {
+    saludo: PropTypes.string.isRequired
+}
 // Exporto mi funcion para poder ser utilizada por otros componentes
 export default PrimeraApp;
