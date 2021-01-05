@@ -37,6 +37,7 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+03-counter-app/node_modules/
 
 # Inclusions
 !lib/**
