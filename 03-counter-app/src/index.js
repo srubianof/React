@@ -12,4 +12,4 @@ const divRoot = document.querySelector("#app");
 console.log(divRoot);
 // Para renderizar componentes que devuelven HTML utilizo <NOMBRE />
 // ReactDOM.render(<PrimeraApp/>, divRoot)
-ReactDOM.render(<CounterApp value={123} />, divRoot);
+ReactDOM.render(<CounterApp value={10} />, divRoot);
