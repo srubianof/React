@@ -1,43 +1,39 @@
 import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
-import styles from './GifGrid.module.css';
+import GifGridItem from "../GifGridItem/GifGridItem";
+import {getGifs} from "../../services/getGifs";
 
 const GifGrid = ({category}) => {
 
-    const [count, setCount] = useState(0);
+    const [images, setImages] = useState([]);
+
     //Ejecutar codigo de manera condicional
     // primer argumento funcion a ejecutar, segundo lista de dependencias
     useEffect(() => {
-        getGifs();
+        //funcion importada que retorna una promesa
+        //hago set de las nuevas imagenes
+        getGifs(category).then(imgs => setImages(imgs));
         //Un arreglo vacio significa SOLO se va a ejecutar una vez
-    }, [])
+        // si la categoria cambia entonces volver a ejecutar el efecto
+    }, [category])
 
-
-    const getGifs = async () => {
-        const url = 'https://api.giphy.com/v1/gifs/search?q=iron+man&limit=5&api_key=vnNOsJHUan9Hhbz9W0apoS9xRBpPzyJ8'
-        // await esperar a que se resuelva la promesa
-        const resp = await fetch(url);
-        const {data} = await resp.json();
-
-        const gifs = data.map(img => {
-            return {
-                id: img.id,
-                title: img.title,
-                //Signo de interrogacion permite verificar si viene el objeto y
-                // de este modo utilizarlo o sino dejarlo UNDEFINED
-                url: img.images?.downsized_medium.url
-            }
-        })
-
-        console.log(gifs)
-    };
 
     return (
-        <div>
+        <>
             <h3> {category}</h3>
-            <h3> {count}</h3>
-            <button onClick={() => setCount(count + 1)}/>
-        </div>
+            <div className="card-grid">
+
+                {
+                    images.map(img => (
+                        <GifGridItem
+                            key={img.id}
+                            // manera para desestructurar objeto usando operador spread
+                            {...img}
+                            //img={img}
+                        />
+                    ))
+                }
+            </div>
+        </>
     )
 };
 

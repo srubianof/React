@@ -10,7 +10,7 @@ const AddCategory = ({setCategories}) => {
             console.log("Submit Done")
             e.preventDefault()
             if (inputValue.trim().length > 0) {
-                setCategories(cats => [...cats, inputValue]);
+                setCategories(cats => [inputValue, ...cats]);
                 setInputValue('')
             }
         }
