@@ -1,16 +1,27 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {getGifs} from "../services/getGifs";
 
-export const useFetchGifs = () => {
+export const useFetchGifs = (category) => {
     const [state, setState] = useState({
         data: [],
         loading: true
     });
+    //Efectos no pueden ser async!!
+    useEffect(() => {
 
-    setTimeout(() => {
-        setState({
-            data: [1, 2, 3, 4, 5],
-            loading: false
-        })
-    }, 3000);
+        getGifs(category)
+            .then(imgs => {
+
+                console.log(imgs)
+                setState({
+                    data: imgs,
+                    loading: false
+                })
+
+            });
+        //Si arreglo vacio solo cargo 1 vez
+        //Si no es que si la categoria cambia se hace el useEffect
+    }, [category])
+
     return state; //{data: [], loading :true}
 }

@@ -1,32 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import GifGridItem from "../GifGridItem/GifGridItem";
-import {getGifs} from "../../services/getGifs";
 import {useFetchGifs} from "../../Hooks/useFetchGifs";
 
 const GifGrid = ({category}) => {
 
-    /* const [images, setImages] = useState([]);
 
-     //Ejecutar codigo de manera condicional
-     // primer argumento funcion a ejecutar, segundo lista de dependencias
-     useEffect(() => {
-         //funcion importada que retorna una promesa
-         //hago set de las nuevas imagenes
-         getGifs(category)
-             .then(imgs => setImages(imgs));
-         //Un arreglo vacio significa SOLO se va a ejecutar una vez
-         // si la categoria cambia entonces volver a ejecutar el efecto
-     }, [category])*/
-
-    const {loading} = useFetchGifs();
-    console.log(loading)
+    const {data: images, loading} = useFetchGifs(category);
 
     return (
         <>
-            <h3> {category}</h3>
+            <h3 className="animate__animated animate__fadeIn"> {category}</h3>
 
-            {loading ? 'Cargando....' : 'Data cargada'}
-            {/*<div className="card-grid">
+            {loading ? <p className="animate__animated animate__flipInX">Loading</p> : ''}
+            <div className="card-grid">
 
                 {
                     images.map(img => (
@@ -38,7 +24,7 @@ const GifGrid = ({category}) => {
                         />
                     ))
                 }
-            </div>*/}
+            </div>
         </>
     )
 };
