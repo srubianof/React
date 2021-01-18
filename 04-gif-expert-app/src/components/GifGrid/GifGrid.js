@@ -1,4 +1,3 @@
-import React, {useState, useEffect} from 'react';
 import GifGridItem from "../GifGridItem/GifGridItem";
 import {useFetchGifs} from "../../Hooks/useFetchGifs";
 
